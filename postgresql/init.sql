@@ -24,6 +24,5 @@ CREATE TABLE order_items (
     item_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     order_id INT REFERENCES orders(order_id),
     product_id INT REFERENCES products(product_id),
-    quantity INT,
-    unit_price NUMERIC(10,2)
+    quantity INT
 );
