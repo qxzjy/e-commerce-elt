@@ -96,8 +96,8 @@ INSERT INTO orders (customer_id, order_date, status) VALUES
 (16, '2025-11-26', 'completed'),
 (17, '2025-11-27', 'completed'),
 (18, '2025-11-28', 'completed'),
-(19, '2025-12-29', 'completed'),
-(20, '2025-12-30', 'completed');
+(19, '2025-12-03', 'completed'),
+(20, '2025-12-04', 'completed');
 
 
 
