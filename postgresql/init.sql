@@ -26,3 +26,19 @@ CREATE TABLE order_items (
     product_id INT REFERENCES products(product_id),
     quantity INT
 );
+
+CREATE TABLE shipments (
+    shipment_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    order_id INT REFERENCES orders(order_id),
+    shipped_date  TIMESTAMP DEFAULT NOW(),
+    delivery_date  TIMESTAMP DEFAULT NOW(),
+    carrier TEXT
+);
+
+CREATE TABLE payments (
+    payment_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    order_id INT REFERENCES orders(order_id),
+    amount NUMERIC(10,2),
+    payment_method TEXT,
+    payment_date  TIMESTAMP DEFAULT NOW()
+);
