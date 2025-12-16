@@ -1,0 +1,4 @@
+logs/
+variables.json
+airflow/config/
+connections.txt
