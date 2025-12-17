@@ -1,3 +1,19 @@
+[project]
+name = "elt-e-commerce"
+version = "1.0.0"
+description = "Comprehensive ELT pipeline for e-commerce data using Airflow, PostgreSQL, Snowflake and dbt."
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "apache-airflow-providers-postgres",
+    "psycopg2-binary",
+    "pandas"
+]
+
+[tool.setuptools]
+py-modules = []
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
