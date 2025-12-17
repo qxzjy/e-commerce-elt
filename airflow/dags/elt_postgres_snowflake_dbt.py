@@ -1,14 +1,12 @@
-import pandas as pd
-
 import logging
+from datetime import datetime
 
+import pandas as pd
 from airflow.models import Variable
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.sdk import dag, task, task_group
-
-from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -72,7 +70,7 @@ def elt_postgres_snowflake_dbt():
             s3_hook = S3Hook(aws_conn_id="aws_default")
             s3_hook.load_file(filename=f"/tmp/{parquet_file_name}", key=f"data/{parquet_file_name}", bucket_name=Variable.get("S3_BUCKET_NAME"))
             
-            logger.info(f"Successfully load parquet file into AWS S3 : s3://{Variable.get("S3_BUCKET_NAME")}/data/{parquet_file_name}")
+            logger.info(f"Successfully load parquet file into AWS S3 : s3://{Variable.get('S3_BUCKET_NAME')}/data/{parquet_file_name}")
         except Exception as e:
             logger.error(f"Error loading data into AWS S3 from {table_name}: {str(e)}")
             raise
