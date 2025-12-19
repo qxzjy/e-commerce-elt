@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 dependencies = [
+    "apache-airflow-providers-snowflake",
     "psycopg2-binary",
     "pandas"
 ]
