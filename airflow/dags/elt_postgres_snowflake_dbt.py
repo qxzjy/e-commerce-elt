@@ -12,7 +12,7 @@ from airflow.sdk import Variable, dag, task, task_group
 
 logger = logging.getLogger(__name__)
 
-TABLES = ["customers"]
+TABLES = ["customers", "orders", "order_items", "payments", "products", "shipments"]
 
 # schedule="@daily"
 @dag(dag_id="elt-postgres-snowflake-dbt", start_date=datetime(2025, 12, 11), schedule=None, catchup=False)
@@ -94,7 +94,7 @@ def elt_postgres_snowflake_dbt():
             snowflake_conn_id = "snowflake_default",
             files = [extract_to_csv["csv_file_name"]],
             table = table_name,
-            schema = Variable.get("SNOWFLAKE_SCHEMA_RAW"),
+            schema = Variable.get("SNOWFLAKE_SCHEMA"),
             stage = Variable.get("SNOWFLAKE_STAGE"),
             file_format="CSV_FORMAT"
         )
