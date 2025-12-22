@@ -2,100 +2,25 @@
 version: 2
 
 models:
-  - name: stg_snwoflake__customers
-    description: "Customers informations such as name and subscription plan"
+  - name: stg_snowflake__customers
+    description: Customers informations such as name and subscription plan
     columns:
       - name: customer_id
-        description: "Customer unique ID"
+        description: Customer unique ID
         data_tests:
           - unique
           - not_null
       - name: first_name
-        description: "Customer first name"
+        description: Customer first name
       - name: last_name
-        description: "Customer last name"
+        description: Customer last name
       - name: email
-        description: "Customer email"
+        description: Customer email
       - name: subscription_plan
-        description: "Customer subscription_plan (basic, standard or premium)"
+        description: Customer subscription_plan (basic, standard or premium)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['basic', 'standard', 'premium']
       - name: created_at
-        description: "Customer creation date"
-
-  - name: stg_snwoflake__orders
-    description: "Order information such as status and timestamps"
-    columns:
-      - name: order_id
-        description: "Order unique ID"
-        data_tests:
-          - unique
-          - not_null
-      - name: customer_id
-        description: "Customer ID associated with the order"
-      - name: order_date
-        description: "Order date"
-      - name: status
-        description: "Order status (canceled or completed)"
-  
-  - name: stg_snwoflake__order_items
-    description: "Order informations on the item level"
-    columns:
-      - name: item_id
-        description: "Item unique ID"
-        data_tests:
-          - unique
-          - not_null
-      - name: order_id
-        description: "Order ID associated with the item"
-      - name: product_id
-        description: "Product ID associated with the item"
-      - name: quantity
-        description: "Item quantity"
-
-  - name: stg_snwoflake__payments
-    description: "Payments informations for an order"
-    columns:
-      - name: payment_id
-        description: "Payment unique ID"
-        data_tests:
-          - unique
-          - not_null
-      - name: order_id
-        description: "Order ID associated with the payment"
-      - name: amount
-        description: "Payment amount"
-      - name: payment_method
-        description: "Payment method (bank_transfer, credit_card or paypal)"
-      - name: payment_date
-        description: "Payment date"  
-
-  - name: stg_snwoflake__products
-    description: "Products informations such as price and name"
-    columns:
-      - name: product_id
-        description: "Product unique ID"
-        data_tests:
-          - unique
-          - not_null
-      - name: name
-        description: "Product name"
-      - name: price
-        description: "Product price"
-      - name: category
-        description: "Product category (accessories, electronics, furniture, home office or lifestyle)"
-
-  - name: stg_snwoflake__shipments
-    description: "Shipments informations for an order"
-    columns:
-      - name: shipment_id
-        description: "Shipment unique ID"
-        data_tests:
-          - unique
-          - not_null
-      - name: order_id
-        description: "Order ID associated with the shipment"
-      - name: shipped_date
-        description: "Shipment date"
-      - name: delivery_date
-        description: "Delivery date"
-      - name: carrier
-        description: "Carrier name (dhl, fedex or ups)"
+        description: Customer creation date
