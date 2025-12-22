@@ -9,27 +9,27 @@
 -- ============================================
 -- CUSTOMERS
 -- ============================================
-INSERT INTO customers (first_name, last_name, email, created_at) VALUES
-('Alice', 'Martin', 'alice.martin@example.com', '2024-01-12'),
-('Bob', 'Johnson', 'bob.johnson@example.com', '2024-02-18'),
-('Carla', 'Nguyen', 'carla.nguyen@example.com', '2024-03-03'),
-('David', 'Lopez', 'david.lopez@example.com', '2024-03-22'),
-('Emma', 'Schmidt', 'emma.schmidt@example.com', '2024-04-10'),
-('Frank', 'Peters', 'frank.peters@example.com', '2024-04-18'),
-('Grace', 'Kim', 'grace.kim@example.com', '2024-05-01'),
-('Henry', 'Wilson', 'henry.wilson@example.com', '2024-05-14'),
-('Isabelle', 'Rossi', 'isabelle.rossi@example.com', '2024-06-02'),
-('Jack', 'Turner', 'jack.turner@example.com', '2024-06-18'),
-('Karen', 'Sato', 'karen.sato@example.com', '2024-07-05'),
-('Leo', 'Garcia', 'leo.garcia@example.com', '2024-07-20'),
-('Maria', 'Fernandez', 'maria.fernandez@example.com', '2024-08-07'),
-('Nathan', 'Brown', 'nathan.brown@example.com', '2024-08-22'),
-('Olivia', 'Bianchi', 'olivia.bianchi@example.com', '2024-09-09'),
-('Paul', 'Kovac', 'paul.kovac@example.com', '2024-09-23'),
-('Quinn', 'Dupont', 'quinn.dupont@example.com', '2024-10-01'),
-('Rita', 'Hassan', 'rita.hassan@example.com', '2024-10-16'),
-('Steve', 'Wong', 'steve.wong@example.com', '2024-11-04'),
-('Tina', 'Novak', 'tina.novak@example.com', '2024-11-19');
+INSERT INTO customers (first_name, last_name, email, subscription_plan, created_at) VALUES
+('Alice', 'Martin', 'alice.martin@example.com', 'basic', '2024-01-12'),
+('Bob', 'Johnson', 'bob.johnson@example.com', 'basic', '2024-02-18'),
+('Carla', 'Nguyen', 'carla.nguyen@example.com', 'basic', '2024-03-03'),
+('David', 'Lopez', 'david.lopez@example.com', 'basic', '2024-03-22'),
+('Emma', 'Schmidt', 'emma.schmidt@example.com', 'basic', '2024-04-10'),
+('Frank', 'Peters', 'frank.peters@example.com', 'basic', '2024-04-18'),
+('Grace', 'Kim', 'grace.kim@example.com', 'basic', '2024-05-01'),
+('Henry', 'Wilson', 'henry.wilson@example.com', 'basic', '2024-05-14'),
+('Isabelle', 'Rossi', 'isabelle.rossi@example.com', 'basic', '2024-06-02'),
+('Jack', 'Turner', 'jack.turner@example.com', 'basic', '2024-06-18'),
+('Karen', 'Sato', 'karen.sato@example.com', 'standard', '2024-07-05'),
+('Leo', 'Garcia', 'leo.garcia@example.com', 'standard', '2024-07-20'),
+('Maria', 'Fernandez', 'maria.fernandez@example.com', 'standard', '2024-08-07'),
+('Nathan', 'Brown', 'nathan.brown@example.com', 'standard', '2024-08-22'),
+('Olivia', 'Bianchi', 'olivia.bianchi@example.com', 'standard', '2024-09-09'),
+('Paul', 'Kovac', 'paul.kovac@example.com', 'premium', '2024-09-23'),
+('Quinn', 'Dupont', 'quinn.dupont@example.com', 'premium', '2024-10-01'),
+('Rita', 'Hassan', 'rita.hassan@example.com', 'premium', '2024-10-16'),
+('Steve', 'Wong', 'steve.wong@example.com', 'premium', '2024-11-04'),
+('Tina', 'Novak', 'tina.novak@example.com', 'premium', '2024-11-19');
 
 
 

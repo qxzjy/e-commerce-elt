@@ -3,6 +3,7 @@ CREATE TABLE customers (
     first_name TEXT,
     last_name TEXT,
     email TEXT,
+    subscription_plan TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
