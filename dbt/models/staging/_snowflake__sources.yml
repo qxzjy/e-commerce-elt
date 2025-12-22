@@ -2,12 +2,19 @@ version: 2
 
 sources:
   - name: snowflake_e_commerce
-    database: e_commerce_db
-    schema: raw
+    description: This is a replica of the Postgres database used by our app
+    database: raw
+    schema: e_commerce
     tables:
       - name: customers
+        description: One record per customer.
       - name: orders
+        description: One record per order. Includes cancelled and deleted orders.
       - name: order_items
+        description: One record per item per order.
       - name: payments
+        description: One record per order.
       - name: products
+        description: One record per product.
       - name: shipments
+        description: One record per order.
