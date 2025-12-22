@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: snowflake_e_commerce
+    database: e_commerce_db
+    schema: raw
+    tables:
+      - name: customers
+      - name: orders
+      - name: order_items
+      - name: payments
+      - name: products
+      - name: shipments
