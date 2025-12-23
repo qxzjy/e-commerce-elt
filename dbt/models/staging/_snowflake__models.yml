@@ -121,6 +121,12 @@ models:
         description: Product name
       - name: price
         description: Product price
+      - name: price_range
+        description: Price range (0 - 75, 75 - 150 or +150)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['0 - 75', '75 - 150', '+150']
       - name: category
         description: Product category (accessories, electronics, furniture, home office or lifestyle)
         data_tests:
