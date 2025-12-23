@@ -100,6 +100,12 @@ models:
           - accepted_values:
               arguments:
                 values: ['bank_transfer', 'credit_card', 'paypal']
+      - name: payment_method_type
+        description: Payment method type (delayed or instant)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['delayed', 'instant']
       - name: payment_date
         description: Payment date 
 
