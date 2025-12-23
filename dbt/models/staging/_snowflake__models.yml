@@ -122,3 +122,30 @@ models:
           - accepted_values:
               arguments:
                 values: ['accessories', 'electronics', 'furniture', 'home office', 'lifestyle']
+  
+  - name: stg_snowflake__shipments
+    description: Shipments informations for an order
+    columns:
+      - name: shipment_id
+        description: Shipment unique ID
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Order ID associated with the shipment
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_snowflake__orders')
+                field: order_id
+      - name: shipped_date
+        description: Shipment date
+      - name: delivery_date
+        description: Delivery date
+      - name: carrier
+        description: Carrier name (dhl, fedex or ups)
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['dhl', 'fedex', 'ups']
