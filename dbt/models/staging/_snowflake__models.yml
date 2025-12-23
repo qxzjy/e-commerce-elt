@@ -10,20 +10,12 @@ models:
         data_tests:
           - unique
           - not_null
-      - name: first_name
-        description: Customer first name
-      - name: last_name
-        description: Customer last name
-      - name: email
-        description: Customer email
       - name: subscription_plan
         description: Customer subscription_plan (basic, standard or premium)
         data_tests:
           - accepted_values:
               arguments:
                 values: ['basic', 'standard', 'premium']
-      - name: created_at
-        description: Customer creation date
 
   - name: stg_snowflake__orders
     description: Order information such as status and timestamps
