@@ -77,6 +77,33 @@ models:
       - name: quantity
         description: Item quantity
 
+  - name: stg_snowflake__payments
+    description: Payments informations for an order
+    columns:
+      - name: payment_id
+        description: Payment unique ID
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Order ID associated with the payment
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_snowflake__orders')
+                field: order_id
+      - name: amount
+        description: Payment amount
+      - name: payment_method
+        description: Payment method (bank_transfer, credit_card or paypal)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['bank_transfer', 'credit_card', 'paypal']
+      - name: payment_date
+        description: Payment date 
+
   - name: stg_snowflake__products
     description: Products informations such as price and name
     columns:
