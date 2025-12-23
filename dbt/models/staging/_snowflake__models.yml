@@ -49,3 +49,22 @@ models:
           - accepted_values:
               arguments:
                 values: ['canceled', 'completed']
+
+  - name: stg_snowflake__products
+    description: Products informations such as price and name
+    columns:
+      - name: product_id
+        description: Product unique ID
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: Product name
+      - name: price
+        description: Product price
+      - name: category
+        description: Product category (accessories, electronics, furniture, home office or lifestyle)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['accessories', 'electronics', 'furniture', 'home office', 'lifestyle']
