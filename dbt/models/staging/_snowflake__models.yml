@@ -24,3 +24,28 @@ models:
                 values: ['basic', 'standard', 'premium']
       - name: created_at
         description: Customer creation date
+
+  - name: stg_snowflake__orders
+    description: Order information such as status and timestamps
+    columns:
+      - name: order_id
+        description: Order unique ID
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Customer ID associated with the order
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_snowflake__customers')
+                field: customer_id
+      - name: order_date
+        description: Order date
+      - name: status
+        description: Order status (canceled or completed)
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['canceled', 'completed']
