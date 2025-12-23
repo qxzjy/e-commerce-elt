@@ -50,6 +50,33 @@ models:
               arguments:
                 values: ['canceled', 'completed']
 
+  - name: stg_snowflake__order_items
+    description: Order informations on the item level
+    columns:
+      - name: item_id
+        description: Item unique ID
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Order ID associated with the item
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_snowflake__orders')
+                field: order_id
+      - name: product_id
+        description: Product ID associated with the item
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_snowflake__products')
+                field: product_id
+      - name: quantity
+        description: Item quantity
+
   - name: stg_snowflake__products
     description: Products informations such as price and name
     columns:
