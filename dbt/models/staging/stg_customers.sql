@@ -9,7 +9,7 @@ customers_staged as (
     select
         customer_id,
         subscription_plan
-    from source
+    from customers
 )
 
 select *

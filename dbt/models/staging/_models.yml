@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: stg_snowflake__customers
+  - name: stg_customers
     description: Customers informations such as name and subscription plan
     columns:
       - name: customer_id
@@ -17,7 +17,7 @@ models:
               arguments:
                 values: ['basic', 'standard', 'premium']
 
-  - name: stg_snowflake__orders
+  - name: stg_orders
     description: Order information such as status and timestamps
     columns:
       - name: order_id
@@ -31,7 +31,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_snowflake__customers')
+                to: ref('stg_customers')
                 field: customer_id
       - name: order_date
         description: Order date
@@ -49,7 +49,7 @@ models:
                 values: [true, false]
 
 
-  - name: stg_snowflake__order_items
+  - name: stg_order_items
     description: Order informations on the item level
     columns:
       - name: item_id
@@ -63,7 +63,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_snowflake__orders')
+                to: ref('stg_orders')
                 field: order_id
       - name: product_id
         description: Product ID associated with the item
@@ -71,12 +71,12 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_snowflake__products')
+                to: ref('stg_products')
                 field: product_id
       - name: quantity
         description: Item quantity
 
-  - name: stg_snowflake__payments
+  - name: stg_payments
     description: Payments informations for an order
     columns:
       - name: payment_id
@@ -90,7 +90,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_snowflake__orders')
+                to: ref('stg_orders')
                 field: order_id
       - name: amount
         description: Payment amount
@@ -109,7 +109,7 @@ models:
       - name: payment_date
         description: Payment date 
 
-  - name: stg_snowflake__products
+  - name: stg_products
     description: Products informations such as price and name
     columns:
       - name: product_id
@@ -134,7 +134,7 @@ models:
               arguments:
                 values: ['accessories', 'electronics', 'furniture', 'home office', 'lifestyle']
   
-  - name: stg_snowflake__shipments
+  - name: stg_shipments
     description: Shipments informations for an order
     columns:
       - name: shipment_id
@@ -148,7 +148,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_snowflake__orders')
+                to: ref('stg_orders')
                 field: order_id
       - name: shipped_date
         description: Shipment date
