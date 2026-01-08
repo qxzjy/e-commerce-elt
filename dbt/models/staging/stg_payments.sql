@@ -5,7 +5,7 @@ payments as (
     from {{ source('snowflake_e_commerce', 'payments') }}
 ),
 
-payments_staged as (
+stg_payments as (
     select
         payment_id,
         order_id,
@@ -20,4 +20,4 @@ payments_staged as (
 )
 
 select *
-from payments_staged
+from stg_payments

@@ -5,7 +5,7 @@ shipments as (
     from {{ source('snowflake_e_commerce', 'shipments') }}
 ),
 
-shipments_staged as (
+stg_shipments as (
     select
         shipment_id,
         order_id,
@@ -16,4 +16,4 @@ shipments_staged as (
 )
 
 select *
-from shipments_staged
+from stg_shipments

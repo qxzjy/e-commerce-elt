@@ -5,7 +5,7 @@ customers as (
     from {{ source('snowflake_e_commerce', 'customers') }}
 ),
 
-customers_staged as (
+stg_customers as (
     select
         customer_id,
         subscription_plan
@@ -13,4 +13,4 @@ customers_staged as (
 )
 
 select *
-from customers_staged
+from stg_customers

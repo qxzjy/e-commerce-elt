@@ -5,7 +5,7 @@ products as (
     from {{ source('snowflake_e_commerce', 'products') }}
 ),
 
-products_staged as (
+stg_products as (
     select
         product_id,
         name,
@@ -20,4 +20,4 @@ products_staged as (
 )
 
 select *
-from products_staged
+from stg_products

@@ -5,7 +5,7 @@ orders as (
     from {{ source('snowflake_e_commerce', 'orders') }}
 ),
 
-orders_staged as (
+stg_orders as (
     select
         order_id,
         customer_id,
@@ -19,4 +19,4 @@ orders_staged as (
 )
 
 select *
-from orders_staged
+from stg_orders
