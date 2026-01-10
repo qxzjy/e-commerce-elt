@@ -10,11 +10,11 @@
 -- CUSTOMERS
 -- ============================================
 INSERT INTO customers (first_name, last_name, email, subscription_plan, created_at) VALUES
-('Alice', 'Martin', 'alice.martin@example.com', 'basic', '2024-01-12'),
-('Bob', 'Johnson', 'bob.johnson@example.com', 'basic', '2024-02-18'),
-('Carla', 'Nguyen', 'carla.nguyen@example.com', 'basic', '2024-03-03'),
-('David', 'Lopez', 'david.lopez@example.com', 'basic', '2024-03-22'),
-('Emma', 'Schmidt', 'emma.schmidt@example.com', 'basic', '2024-04-10'),
+('Alice', 'Martin', 'alice.martin@example.com', 'basic', '2024-01-01'),
+('Bob', 'Johnson', 'bob.johnson@example.com', 'basic', '2024-01-03'),
+('Carla', 'Nguyen', 'carla.nguyen@example.com', 'basic', '2024-01-04'),
+('David', 'Lopez', 'david.lopez@example.com', 'basic', '2024-01-07'),
+('Emma', 'Schmidt', 'emma.schmidt@example.com', 'basic', '2024-01-09'),
 ('Frank', 'Peters', 'frank.peters@example.com', 'basic', '2024-04-18'),
 ('Grace', 'Kim', 'grace.kim@example.com', 'basic', '2024-05-01'),
 ('Henry', 'Wilson', 'henry.wilson@example.com', 'basic', '2024-05-14'),
