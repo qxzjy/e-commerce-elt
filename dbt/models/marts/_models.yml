@@ -24,3 +24,10 @@ models:
           - not_null
   - name: dim_date
     description: Date dimension
+  - name: dim_payment_method
+    description: Payment method dimension
+    columns:
+      - name: payment_method_sk
+        data_tests:
+          - unique
+          - not_null
