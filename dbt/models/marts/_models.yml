@@ -9,3 +9,16 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: dim_customer
+    description: Customer dimension
+    columns:
+      - name: customer_sk
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+      - name: is_current
+        data_tests:
+          - not_null
