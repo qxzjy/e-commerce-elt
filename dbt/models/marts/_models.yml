@@ -31,3 +31,13 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: dim_product
+    description: Product dimension
+    columns:
+      - name: product_sk
+        data_tests:
+          - unique
+          - not_null
+      - name: product_id
+        data_tests:
+          - not_null
