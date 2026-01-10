@@ -1,0 +1,11 @@
+
+version: 2
+
+models:
+  - name: dim_carrier
+    description: Carrier dimension
+    columns:
+      - name: carrier_sk
+        data_tests:
+          - unique
+          - not_null
