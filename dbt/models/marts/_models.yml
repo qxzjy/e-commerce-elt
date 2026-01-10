@@ -22,3 +22,5 @@ models:
       - name: is_current
         data_tests:
           - not_null
+  - name: dim_date
+    description: Date dimension
