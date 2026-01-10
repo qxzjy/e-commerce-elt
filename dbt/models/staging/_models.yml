@@ -10,12 +10,30 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: first_name
+        description: Customer first name
+      - name: last_name
+        description: Customer last name
+      - name: email
+        description: Customer email
+        data_tests:
+          - not_null
       - name: subscription_plan
         description: Customer subscription_plan (basic, standard or premium)
         data_tests:
           - accepted_values:
               arguments:
                 values: ['basic', 'standard', 'premium']
+      - name: created_at
+        description: Customer creation date
+        data_tests:
+          - not_null
+      - name: is_old_client
+        description: Is the consumer an old one ?
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['True', 'False']
 
   - name: stg_orders
     description: Order information such as status and timestamps
