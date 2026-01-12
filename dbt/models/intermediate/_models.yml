@@ -3,7 +3,7 @@ version: 2
 
 models:
   - name: int_order_items_enriched
-    description: Order informations on the item level enriched with product informations
+    description: Order informations on the item level enriched with order context, customer, product price and business metrics
     columns:
       - name: order_item_id
         description: Item unique ID
@@ -42,3 +42,5 @@ models:
         description: Product unit price
       - name: gross_amount
         description: Gross amount for the item
+  - name: int_orders_aggregated
+    description: Order informations on the item level aggregated to the order level
