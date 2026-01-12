@@ -5,7 +5,7 @@ models:
   - name: int_order_items_enriched
     description: Order informations on the item level enriched with product informations
     columns:
-      - name: item_id
+      - name: order_item_id
         description: Item unique ID
         data_tests:
           - unique
@@ -14,21 +14,31 @@ models:
         description: Order ID associated with the item
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: customer_id
+        description: Customer ID associated with the order
+        data_tests:
+          - not_null
       - name: product_id
         description: Product ID associated with the item
         data_tests:
           - not_null
-      - name: product_name
-        description: Product name
-      - name: product_category
-        description: Product category (accessories, electronics, furniture, home office or lifestyle)
-        data_tests:
-          - accepted_values:
+          - relationships:
               arguments:
-                values: ['accessories', 'electronics', 'furniture', 'home office', 'lifestyle']
+                to: ref('stg_products')
+                field: product_id
+      - name: order_date
+        description: Order date
+        data_tests:
+          - not_null
+      - name: order_status
+        description: Order status (canceled or completed)
       - name: quantity
         description: Item quantity
-      - name: product_unit_price
+      - name: unit_price
         description: Product unit price
-      - name: total_price
-        description: Total price of item
+      - name: gross_amount
+        description: Gross amount for the item
