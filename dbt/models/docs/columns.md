@@ -47,3 +47,21 @@ Order status (canceled or completed)
 {% docs orders__is_completed_order %}
 Is the order complete ?
 {% enddocs %}
+
+
+
+{% docs order_items__item_id %}
+Item unique ID
+{% enddocs %}
+
+{% docs order_items__order_id %}
+Order ID associated with the item
+{% enddocs %}
+
+{% docs order_items__product_id %}
+Product ID associated with the item
+{% enddocs %}
+
+{% docs order_items__quantity %}
+Item quantity
+{% enddocs %}

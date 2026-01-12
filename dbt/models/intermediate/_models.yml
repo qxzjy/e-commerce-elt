@@ -6,12 +6,12 @@ models:
     description: Order informations on the item level enriched with order context, customer, product price and business metrics
     columns:
       - name: order_item_id
-        description: Item unique ID
+        description: "{{ doc('order_items__item_id') }}"
         data_tests:
           - unique
           - not_null
       - name: order_id
-        description: Order ID associated with the item
+        description: "{{ doc('order_items__order_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -23,7 +23,7 @@ models:
         data_tests:
           - not_null
       - name: product_id
-        description: Product ID associated with the item
+        description: "{{ doc('order_items__product_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -37,7 +37,7 @@ models:
       - name: order_status
         description: "{{ doc('orders__status') }}"
       - name: quantity
-        description: Item quantity
+        description: "{{ doc('order_items__quantity') }}"
       - name: unit_price
         description: Product unit price
       - name: gross_amount

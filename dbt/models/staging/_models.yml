@@ -71,12 +71,12 @@ models:
     description: Order informations on the item level
     columns:
       - name: item_id
-        description: Item unique ID
+        description: "{{ doc('order_items__item_id') }}"
         data_tests:
           - unique
           - not_null
       - name: order_id
-        description: Order ID associated with the item
+        description: "{{ doc('order_items__order_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -84,7 +84,7 @@ models:
                 to: ref('stg_orders')
                 field: order_id
       - name: product_id
-        description: Product ID associated with the item
+        description: "{{ doc('order_items__product_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -92,7 +92,7 @@ models:
                 to: ref('stg_products')
                 field: product_id
       - name: quantity
-        description: Item quantity
+        description: "{{ doc('order_items__quantity') }}"
 
   - name: stg_payments
     description: Payments informations for an order
