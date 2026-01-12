@@ -25,3 +25,25 @@ Customer creation date
 {% docs customers__is_old_client %}
 Is the consumer an old one ?
 {% enddocs %}
+
+
+
+{% docs orders__order_id %}
+Order unique ID
+{% enddocs %}
+
+{% docs orders__customer_id %}
+Customer ID associated with the order
+{% enddocs %}
+
+{% docs orders__order_date %}
+Order date
+{% enddocs %}
+
+{% docs orders__status %}
+Order status (canceled or completed)
+{% enddocs %}
+
+{% docs orders__is_completed_order %}
+Is the order complete ?
+{% enddocs %}

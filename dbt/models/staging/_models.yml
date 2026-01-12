@@ -6,30 +6,30 @@ models:
     description: Customers informations such as name and subscription plan
     columns:
       - name: customer_id
-        description: Customer unique ID
+        description: "{{ doc('customers__customer_id') }}"
         data_tests:
           - unique
           - not_null
       - name: first_name
-        description: Customer first name
+        description: "{{ doc('customers__first_name') }}"
       - name: last_name
-        description: Customer last name
+        description: "{{ doc('customers__last_name') }}"
       - name: email
-        description: Customer email
+        description: "{{ doc('customers__email') }}"
         data_tests:
           - not_null
       - name: subscription_plan
-        description: Customer subscription_plan (basic, standard or premium)
+        description: "{{ doc('customers__subscription_plan') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['basic', 'standard', 'premium']
       - name: created_at
-        description: Customer creation date
+        description: "{{ doc('customers__created_at') }}"
         data_tests:
           - not_null
       - name: is_old_client
-        description: Is the consumer an old one ?
+        description: "{{ doc('customers__is_old_client') }}"
         data_tests:
           - accepted_values:
               arguments:
@@ -39,12 +39,12 @@ models:
     description: Order information such as status and timestamps
     columns:
       - name: order_id
-        description: Order unique ID
+        description: "{{ doc('orders__order_id') }}"
         data_tests:
           - unique
           - not_null
       - name: customer_id
-        description: Customer ID associated with the order
+        description: "{{ doc('orders__customer_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -52,15 +52,15 @@ models:
                 to: ref('stg_customers')
                 field: customer_id
       - name: order_date
-        description: Order date
+        description: "{{ doc('orders__order_date') }}"
       - name: status
-        description: Order status (canceled or completed)
+        description: "{{ doc('orders__status') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['canceled', 'completed']
       - name: is_completed_order
-        description: Is an order complete ?
+        description: "{{ doc('orders__is_completed_order') }}"
         data_tests:
           - accepted_values:
               arguments:
