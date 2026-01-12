@@ -113,3 +113,25 @@ Price range (0 - 75, 75 - 150 or +150)
 {% docs products__category %}
 Product category (accessories, electronics, furniture, home office or lifestyle)
 {% enddocs %}
+
+
+
+{% docs shipments__shipment_id %}
+Shipment unique ID
+{% enddocs %}
+
+{% docs shipments__order_id %}
+Order ID associated with the shipment
+{% enddocs %}
+
+{% docs shipments__shipped_date %}
+Shipment date
+{% enddocs %}
+
+{% docs shipments__delivery_date %}
+Delivery date
+{% enddocs %}
+
+{% docs shipments__carrier %}
+Carrier name (dhl, fedex or ups)
+{% enddocs %}

@@ -156,12 +156,12 @@ models:
     description: Shipments informations for an order
     columns:
       - name: shipment_id
-        description: Shipment unique ID
+        description: "{{ doc('shipments__shipment_id') }}"
         data_tests:
           - unique
           - not_null
       - name: order_id
-        description: Order ID associated with the shipment
+        description: "{{ doc('shipments__order_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -169,11 +169,11 @@ models:
                 to: ref('stg_orders')
                 field: order_id
       - name: shipped_date
-        description: Shipment date
+        description: "{{ doc('shipments__shipped_date') }}"
       - name: delivery_date
-        description: Delivery date
+        description: "{{ doc('shipments__delivery_date') }}"
       - name: carrier
-        description: Carrier name (dhl, fedex or ups)
+        description: "{{ doc('shipments__carrier') }}"
         tests:
           - accepted_values:
               arguments:
