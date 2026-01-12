@@ -98,12 +98,12 @@ models:
     description: Payments informations for an order
     columns:
       - name: payment_id
-        description: Payment unique ID
+        description: "{{ doc('payments__payment_id') }}"
         data_tests:
           - unique
           - not_null
       - name: order_id
-        description: Order ID associated with the payment
+        description: "{{ doc('payments__order_id') }}"
         data_tests:
           - not_null
           - relationships:
@@ -111,21 +111,21 @@ models:
                 to: ref('stg_orders')
                 field: order_id
       - name: amount
-        description: Payment amount
+        description: "{{ doc('payments__amount') }}"
       - name: payment_method
-        description: Payment method (bank_transfer, credit_card or paypal)
+        description: "{{ doc('payments__payment_method') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['bank_transfer', 'credit_card', 'paypal']
       - name: payment_method_type
-        description: Payment method type (delayed or instant)
+        description: "{{ doc('payments__payment_method_type') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['delayed', 'instant']
       - name: payment_date
-        description: Payment date 
+        description: "{{ doc('payments__payment_date') }}"
 
   - name: stg_products
     description: Products informations such as price and name

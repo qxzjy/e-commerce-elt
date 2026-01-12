@@ -65,3 +65,29 @@ Product ID associated with the item
 {% docs order_items__quantity %}
 Item quantity
 {% enddocs %}
+
+
+
+{% docs payments__payment_id %}
+Payment unique ID
+{% enddocs %}
+
+{% docs payments__order_id %}
+Order ID associated with the payment
+{% enddocs %}
+
+{% docs payments__amount %}
+Payment amount
+{% enddocs %}
+
+{% docs payments__payment_method %}
+Payment method (bank_transfer, credit_card or paypal)
+{% enddocs %}
+
+{% docs payments__payment_method_type %}
+Payment method type (delayed or instant)
+{% enddocs %}
+
+{% docs payments__payment_date %}
+Payment date
+{% enddocs %}
