@@ -18,7 +18,7 @@ models:
               arguments:
                 to: ref('stg_orders')
                 field: order_id
-      - name: customer_id
+      - name: "{{ doc('customers__customer_id') }}"
         description: Customer ID associated with the order
         data_tests:
           - not_null
