@@ -131,22 +131,22 @@ models:
     description: Products informations such as price and name
     columns:
       - name: product_id
-        description: Product unique ID
+        description: "{{ doc('products__product_id') }}"
         data_tests:
           - unique
           - not_null
       - name: name
-        description: Product name
+        description: "{{ doc('products__name') }}"
       - name: price
-        description: Product price
+        description: "{{ doc('products__price') }}"
       - name: price_range
-        description: Price range (0 - 75, 75 - 150 or +150)
+        description: "{{ doc('products__price_range') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['0 - 75', '75 - 150', '+150']
       - name: category
-        description: Product category (accessories, electronics, furniture, home office or lifestyle)
+        description: "{{ doc('products__category') }}"
         data_tests:
           - accepted_values:
               arguments:

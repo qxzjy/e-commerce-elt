@@ -39,7 +39,7 @@ models:
       - name: quantity
         description: "{{ doc('order_items__quantity') }}"
       - name: unit_price
-        description: Product unit price
+        description: "{{ doc('products__price') }}"
       - name: gross_amount
         description: Gross amount for the item
   - name: int_orders_aggregated

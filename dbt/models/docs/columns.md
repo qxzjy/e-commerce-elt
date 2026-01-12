@@ -91,3 +91,25 @@ Payment method type (delayed or instant)
 {% docs payments__payment_date %}
 Payment date
 {% enddocs %}
+
+
+
+{% docs products__product_id %}
+Product unique ID
+{% enddocs %}
+
+{% docs products__name %}
+Product name
+{% enddocs %}
+
+{% docs products__price %}
+Product price
+{% enddocs %}
+
+{% docs products__price_range %}
+Price range (0 - 75, 75 - 150 or +150)
+{% enddocs %}
+
+{% docs products__category %}
+Product category (accessories, electronics, furniture, home office or lifestyle)
+{% enddocs %}
