@@ -43,4 +43,26 @@ models:
       - name: gross_amount
         description: Gross amount for the item
   - name: int_orders_aggregated
-    description: Order informations on the item level aggregated to the order level
+    description: Order items aggregated to the order level
+    columns:
+      - name: order_item_id
+        description: "{{ doc('orders__order_id') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "{{ doc('orders__customer_id') }}"
+        data_tests:
+          - not_null
+      - name: order_date
+        description: "{{ doc('orders__order_date') }}"
+        data_tests:
+          - not_null
+      - name: order_status
+        description: "{{ doc('orders__status') }}"
+      - name: total_line_items
+        description: Total number of item lines in the order
+      - name: total_quantity
+        description: Total quantity of items in the order
+      - name: order_total_amount
+        description: Total amount of the order
