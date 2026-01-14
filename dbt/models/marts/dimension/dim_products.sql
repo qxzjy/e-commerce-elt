@@ -5,7 +5,7 @@ products as (
     from {{ ref('stg_products') }}
 ),
 
-dim_product as (
+dim_products as (
     select
         {{ dbt_utils.generate_surrogate_key(['product_id']) }} as product_sk,
         product_id,
@@ -17,4 +17,4 @@ dim_product as (
 )
 
 select *
-from dim_product
+from dim_products

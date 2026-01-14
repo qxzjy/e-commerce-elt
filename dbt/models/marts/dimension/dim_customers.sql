@@ -5,7 +5,7 @@ customers as (
     from {{ ref('customers_snapshot') }}
 ),
 
-dim_customer as (
+dim_customers as (
     select
         {{ dbt_utils.generate_surrogate_key(['customer_id', 'dbt_valid_from']) }} as customer_sk,
         customer_id,
@@ -22,4 +22,4 @@ dim_customer as (
 )
 
 select *
-from dim_customer
+from dim_customers
