@@ -9,7 +9,7 @@ models:
         data_tests:
           - unique
           - not_null
-  - name: dim_customer
+  - name: dim_customers
     description: Customer dimension
     columns:
       - name: customer_sk
@@ -31,7 +31,7 @@ models:
         data_tests:
           - unique
           - not_null
-  - name: dim_product
+  - name: dim_products
     description: Product dimension
     columns:
       - name: product_sk
