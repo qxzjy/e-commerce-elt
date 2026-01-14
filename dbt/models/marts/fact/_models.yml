@@ -8,3 +8,5 @@ models:
     description: Orders fact
   - name: fact_payments
     description: Payments fact
+  - name: fact_shipments
+    description: Shipments fact
