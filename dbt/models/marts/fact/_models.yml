@@ -4,3 +4,5 @@ version: 2
 models:
   - name: fact_order_items
     description: Order items fact
+  - name: fact_orders
+    description: Orders fact
