@@ -6,3 +6,5 @@ models:
     description: Order items fact
   - name: fact_orders
     description: Orders fact
+  - name: fact_payments
+    description: Payments fact
