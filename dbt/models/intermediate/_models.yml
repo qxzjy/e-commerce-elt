@@ -45,7 +45,7 @@ models:
   - name: int_orders_aggregated
     description: Order items aggregated to the order level
     columns:
-      - name: order_item_id
+      - name: order_id
         description: "{{ doc('orders__order_id') }}"
         data_tests:
           - unique
