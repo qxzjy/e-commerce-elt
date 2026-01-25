@@ -15,7 +15,7 @@ Customer email
 {% enddocs %}
 
 {% docs customers__subscription_plan %}
-Customer subscription_plan (basic, standard or premium)
+Customer subscription_plan (free, plus or pro)
 {% enddocs %}
 
 {% docs customers__created_at %}
@@ -81,7 +81,7 @@ Payment amount
 {% enddocs %}
 
 {% docs payments__payment_method %}
-Payment method (bank_transfer, credit_card or paypal)
+Payment method (bank_transfer, credit_card, paypal or refund)
 {% enddocs %}
 
 {% docs payments__payment_method_type %}

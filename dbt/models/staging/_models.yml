@@ -23,7 +23,7 @@ models:
         data_tests:
           - accepted_values:
               arguments:
-                values: ['basic', 'standard', 'premium']
+                values: ['free', 'plus', 'pro']
       - name: created_at
         description: "{{ doc('customers__created_at') }}"
         data_tests:
@@ -58,7 +58,7 @@ models:
         data_tests:
           - accepted_values:
               arguments:
-                values: ['canceled', 'completed']
+                values: ['canceled', 'completed', 'returned']
       - name: is_completed_order
         description: "{{ doc('orders__is_completed_order') }}"
         data_tests:
@@ -117,7 +117,7 @@ models:
         data_tests:
           - accepted_values:
               arguments:
-                values: ['bank_transfer', 'credit_card', 'paypal']
+                values: ['bank_transfer', 'credit_card', 'paypal', 'refund']
       - name: payment_method_type
         description: "{{ doc('payments__payment_method_type') }}"
         data_tests:
