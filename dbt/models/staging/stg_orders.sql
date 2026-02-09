@@ -2,14 +2,14 @@ with
 
 orders as (
     select *
-    from {{ source('snowflake_e_commerce', 'orders') }}
+    from {{ source('bigquery_e_commerce', 'orders') }}
 ),
 
 stg_orders as (
     select
         order_id,
         customer_id,
-        order_date::date as order_date,
+        cast(order_date as date) as order_date,
         status,
         case
             when status = 'completed' then true

@@ -2,15 +2,15 @@ with
 
 shipments as (
     select *
-    from {{ source('snowflake_e_commerce', 'shipments') }}
+    from {{ source('bigquery_e_commerce', 'shipments') }}
 ),
 
 stg_shipments as (
     select
         shipment_id,
         order_id,
-        shipped_date::date as shipped_date,
-        delivery_date::date as delivery_date,
+        cast(shipped_date as date) as shipped_date,
+        cast(delivery_date as date) as delivery_date,
         carrier
     from shipments
 )

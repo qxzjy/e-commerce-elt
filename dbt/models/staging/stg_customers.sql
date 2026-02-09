@@ -2,7 +2,7 @@ with
 
 customers as (
     select *
-    from {{ source('snowflake_e_commerce', 'customers') }}
+    from {{ source('bigquery_e_commerce', 'customers') }}
 ),
 
 stg_customers as (
@@ -12,10 +12,10 @@ stg_customers as (
         last_name,
         email,
         subscription_plan,
-        created_at::date as created_at,
+        cast(created_at as date) as created_at,
         case
-            when current_date - created_at::date > 730 then True
-            else False
+            when date_diff(current_date(), cast(created_at as date), day) > 730 then true
+            else false
         end as is_old_client
     from customers
 )

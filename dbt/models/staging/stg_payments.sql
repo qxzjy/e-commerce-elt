@@ -2,7 +2,7 @@ with
 
 payments as (
     select *
-    from {{ source('snowflake_e_commerce', 'payments') }}
+    from {{ source('bigquery_e_commerce', 'payments') }}
 ),
 
 stg_payments as (
@@ -15,7 +15,7 @@ stg_payments as (
             when payment_method = 'bank_transfer' then 'delayed'
             else 'instant'
         end as payment_method_type,
-        payment_date::date as payment_date
+        cast(payment_date as date) as payment_date
     from payments
 )
 
