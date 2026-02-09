@@ -33,8 +33,8 @@ fact_order_items as (
         oi.gross_amount
     from order_items oi
     left join customers c on oi.customer_id = c.customer_id
-       and oi.order_date >= c.valid_from
-       and (oi.order_date < c.valid_to or c.valid_to is null)
+       and oi.order_date >= cast(c.valid_from as date)
+       and (oi.order_date < cast(c.valid_to as date) or c.valid_to is null)
     left join products p on oi.product_id = p.product_id
     left join dates d on oi.order_date = d.date_day
 )

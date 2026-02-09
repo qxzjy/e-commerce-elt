@@ -2,7 +2,7 @@ with
 
 products as (
     select *
-    from {{ source('snowflake_e_commerce', 'products') }}
+    from {{ source('bigquery_e_commerce', 'products') }}
 ),
 
 stg_products as (

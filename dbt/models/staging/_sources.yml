@@ -1,10 +1,9 @@
 version: 2
 
 sources:
-  - name: snowflake_e_commerce
+  - name: bigquery_e_commerce
     description: This is a replica of the Postgres database used by our app
-    database: raw
-    schema: e_commerce
+    dataset: e_commerce_raw
     tables:
       - name: customers
         description: One record per customer.

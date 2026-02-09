@@ -44,8 +44,8 @@ fact_payments as (
     from payments p
     left join orders o on p.order_id = o.order_id
     left join customers c on o.customer_id = c.customer_id
-       and p.payment_date >= c.valid_from
-       and (p.payment_date < c.valid_to or c.valid_to is null)
+       and p.payment_date >= cast(c.valid_from as date)
+       and (p.payment_date < cast(c.valid_to as date) or c.valid_to is null)
     left join payment_methods pm on p.payment_method = pm.payment_method
     left join dates d on p.payment_date = d.date_day
 )
