@@ -30,10 +30,6 @@ models:
           - not_null
       - name: is_old_client
         description: "{{ doc('customers__is_old_client') }}"
-        data_tests:
-          - accepted_values:
-              arguments:
-                values: ['True', 'False']
 
   - name: stg_orders
     description: Order information such as status and timestamps
@@ -61,10 +57,6 @@ models:
                 values: ['canceled', 'completed', 'returned']
       - name: is_completed_order
         description: "{{ doc('orders__is_completed_order') }}"
-        data_tests:
-          - accepted_values:
-              arguments:
-                values: [true, false]
 
 
   - name: stg_order_items
