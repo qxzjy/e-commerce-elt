@@ -27,10 +27,10 @@ fact_shipments as (
         sd.date_sk as shipped_date_sk,
         dd.date_sk as delivery_date_sk,
         c.carrier_sk,
-        datediff(
-            day,
+        date_diff(
+            s.delivery_date,
             s.shipped_date,
-            s.delivery_date
+            day
         ) as shipping_duration_days
     from shipments s
     left join carriers c on s.carrier = c.carrier

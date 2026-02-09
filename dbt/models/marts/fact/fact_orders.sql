@@ -25,8 +25,8 @@ fact_orders as (
         o.order_total_amount
     from orders o
     left join customers c on o.customer_id = c.customer_id
-       and o.order_date >= c.valid_from
-       and (o.order_date < c.valid_to or c.valid_to is null)
+       and o.order_date >= cast(c.valid_from as date)
+       and (o.order_date < cast(c.valid_to as date) or c.valid_to is null)
     left join dates d on o.order_date = d.date_day
 )
 
