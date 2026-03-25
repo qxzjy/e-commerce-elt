@@ -135,3 +135,23 @@ Delivery date
 {% docs shipments__carrier %}
 Carrier name (dhl, fedex or ups)
 {% enddocs %}
+
+
+
+{% docs order_items_enriched__gross_amount %}
+Gross amount for the item
+{% enddocs %}
+
+
+
+{% docs orders_aggregated__total_line_items %}
+Total number of item lines in the order
+{% enddocs %}
+
+{% docs orders_aggregated__total_quantity %}
+Total quantity of items in the order
+{% enddocs %}
+
+{% docs orders_aggregated__order_total_amount %}
+Total amount of the order
+{% enddocs %}

@@ -41,7 +41,7 @@ models:
       - name: unit_price
         description: "{{ doc('products__price') }}"
       - name: gross_amount
-        description: Gross amount for the item
+        description: "{{ doc('order_items_enriched__gross_amount') }}"
   - name: int_orders_aggregated
     description: Order items aggregated to the order level
     columns:
@@ -61,8 +61,8 @@ models:
       - name: order_status
         description: "{{ doc('orders__status') }}"
       - name: total_line_items
-        description: Total number of item lines in the order
+        description: "{{ doc('orders_aggregated__total_line_items') }}"
       - name: total_quantity
-        description: Total quantity of items in the order
+        description: "{{ doc('orders_aggregated__total_quantity') }}"
       - name: order_total_amount
-        description: Total amount of the order
+        description: "{{ doc('orders_aggregated__order_total_amount') }}"

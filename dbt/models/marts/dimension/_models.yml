@@ -6,26 +6,53 @@ models:
     description: Carrier dimension
     columns:
       - name: carrier_sk
+        description: Carrier surrogate key
         data_tests:
           - unique
           - not_null
+      - name: carrier
+        description: "{{ doc('shipments__carrier') }}"
   - name: dim_customers
     description: Customer dimension
     columns:
       - name: customer_sk
+        description: Customer surrogate key
         data_tests:
           - unique
           - not_null
       - name: customer_id
+        description: "{{ doc('customers__customer_id') }}"
         data_tests:
           - not_null
+      - name: first_name
+        description: "{{ doc('customers__first_name') }}"
+      - name: last_name
+        description: "{{ doc('customers__last_name') }}"
+      - name: email
+        description: "{{ doc('customers__email') }}"
+        data_tests:
+          - not_null
+      - name: subscription_plan
+        description: "{{ doc('customers__subscription_plan') }}"
+      - name: created_at
+        description: "{{ doc('customers__created_at') }}"
+        data_tests:
+          - not_null
+      - name: is_old_client
+        description: "{{ doc('customers__is_old_client') }}"
+      - name: valid_from
+        description: The timestamp when the version of the record became valid.
+      - name: valid_to
+        description: The timestamp when this version was replaced (the current version will have null here).
       - name: is_current
+        description: Is the record up to date ?
         data_tests:
           - not_null
   - name: dim_date
     description: Date dimension
     columns:
       - name: date_sk
+        description: Date surrogate key
         data_tests:
           - unique
           - not_null
@@ -33,16 +60,29 @@ models:
     description: Payment method dimension
     columns:
       - name: payment_method_sk
+        description: Payment method surrogate key
         data_tests:
           - unique
           - not_null
+      - name: payment_method
+        description: "{{ doc('payments__payment_method') }}"
   - name: dim_products
     description: Product dimension
     columns:
       - name: product_sk
+        description: Product surrogate key
         data_tests:
           - unique
           - not_null
       - name: product_id
+        description: "{{ doc('products__product_id') }}"
         data_tests:
           - not_null
+      - name: name
+        description: "{{ doc('products__name') }}"
+      - name: price
+        description: "{{ doc('products__price') }}"
+      - name: price_range
+        description: "{{ doc('products__price_range') }}"
+      - name: category
+        description: "{{ doc('products__category') }}"
