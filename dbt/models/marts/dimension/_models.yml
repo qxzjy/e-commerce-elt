@@ -6,7 +6,7 @@ models:
     description: Carrier dimension
     columns:
       - name: carrier_sk
-        description: Carrier surrogate key
+        description: "{{ doc('carrier__carrier_sk') }}"
         data_tests:
           - unique
           - not_null
@@ -16,7 +16,7 @@ models:
     description: Customer dimension
     columns:
       - name: customer_sk
-        description: Customer surrogate key
+        description: "{{ doc('customers__customer_sk') }}"
         data_tests:
           - unique
           - not_null
@@ -52,7 +52,7 @@ models:
     description: Date dimension
     columns:
       - name: date_sk
-        description: Date surrogate key
+        description: "{{ doc('date__date_sk') }}"
         data_tests:
           - unique
           - not_null
@@ -60,7 +60,7 @@ models:
     description: Payment method dimension
     columns:
       - name: payment_method_sk
-        description: Payment method surrogate key
+        description: "{{ doc('payment_method__payment_method_sk') }}"
         data_tests:
           - unique
           - not_null
@@ -70,7 +70,7 @@ models:
     description: Product dimension
     columns:
       - name: product_sk
-        description: Product surrogate key
+        description: "{{ doc('products__product_sk') }}"
         data_tests:
           - unique
           - not_null
