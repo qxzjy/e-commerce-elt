@@ -155,3 +155,68 @@ Total quantity of items in the order
 {% docs orders_aggregated__order_total_amount %}
 Total amount of the order
 {% enddocs %}
+
+
+
+{% docs carrier__carrier_sk %}
+Carrier surrogate key (carrier)
+{% enddocs %}
+
+
+
+{% docs customers__customer_sk %}
+Customer surrogate key (customer_id, dbt_valid_from)
+{% enddocs %}
+
+
+
+{% docs date__date_sk %}
+Date surrogate key (date_day)
+{% enddocs %}
+
+
+
+{% docs payment_method__payment_method_sk %}
+Payment method surrogate key (payment_method)
+{% enddocs %}
+
+
+
+{% docs products__product_sk %}
+Product surrogate key (product_id)
+{% enddocs %}
+
+
+
+{% docs order_items__order_items_sk %}
+Order items surrogate key (order_id, product_id)
+{% enddocs %}
+
+
+
+
+{% docs order__order_date_sk %}
+Order date surrogate key (date_day)
+{% enddocs %}
+
+
+
+
+{% docs payments__payment_date_sk %}
+Payment date surrogate key (date_day)
+{% enddocs %}
+
+
+
+
+{% docs shipments__shipped_date_sk %}
+Shipped date surrogate key (date_day)
+{% enddocs %}
+
+{% docs shipments__delivery_date_sk %}
+Delivery date surrogate key (date_day)
+{% enddocs %}
+
+{% docs shipments__shipping_duration_days %}
+Shipping duration (days)
+{% enddocs %}
