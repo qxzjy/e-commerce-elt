@@ -4,9 +4,67 @@ version: 2
 models:
   - name: fact_order_items
     description: Order items fact
+    columns:
+      - name: order_items_sk
+        description: "{{ doc('order_items__order_items_sk') }}"
+      - name: order_item_id
+        description: "{{ doc('order_items__item_id') }}"
+      - name: order_date_sk
+        description: "{{ doc('order__order_date_sk') }}"
+      - name: customer_sk
+        description: "{{ doc('customers__customer_sk') }}"
+      - name: product_sk
+        description: "{{ doc('products__product_sk') }}"
+      - name: order_status
+        description: "{{ doc('orders__status') }}"
+      - name: quantity
+        description: "{{ doc('order_items__quantity') }}"
+      - name: unit_price
+        description: "{{ doc('products__price') }}"
+      - name: gross_amount
+        description: "{{ doc('order_items_enriched__gross_amount') }}"
   - name: fact_orders
     description: Orders fact
+    columns:
+      - name: order_id
+        description: "{{ doc('orders__order_id') }}"
+      - name: order_date_sk
+        description: "{{ doc('order__order_date_sk') }}"
+      - name: customer_sk
+        description: "{{ doc('customers__customer_sk') }}"
+      - name: order_status
+        description: "{{ doc('orders__status') }}"
+      - name: total_quantity
+        description: "{{ doc('orders_aggregated__total_quantity') }}"
+      - name: order_total_amount
+        description: "{{ doc('orders_aggregated__order_total_amount') }}"
   - name: fact_payments
     description: Payments fact
+    columns:
+      - name: payment_id
+        description: "{{ doc('payments__payment_id') }}"
+      - name: order_id
+        description: "{{ doc('payments__order_id') }}"
+      - name: payment_date_sk
+        description: "{{ doc('payments__payment_date_sk') }}"
+      - name: customer_sk
+        description: "{{ doc('customers__customer_sk') }}"
+      - name: payment_method_sk
+        description: "{{ doc('payment_method__payment_method_sk') }}"
+      - name: amount
+        description: "{{ doc('payment_amount') }}"
   - name: fact_shipments
     description: Shipments fact
+    columns:
+      - name: shipment_id
+        description: "{{ doc('shipments__shipment_id') }}"
+      - name: order_id
+        description: "{{ doc('shipments__order_id') }}"
+      - name: shipped_date_sk
+        description: "{{ doc('shipments__shipped_date_sk') }}"
+      - name: delivery_date_sk
+        description: "{{ doc('shipments__delivery_date_sk') }}"
+      - name: carrier_sk
+        description: "{{ doc('carrier__carrier_sk') }}"
+      - name: shipping_duration_days
+        description: "{{ doc('shipments__shipping_duration_days') }}"

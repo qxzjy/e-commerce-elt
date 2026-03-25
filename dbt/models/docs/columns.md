@@ -191,3 +191,32 @@ Product surrogate key (product_id)
 {% docs order_items__order_items_sk %}
 Order items surrogate key (order_id, product_id)
 {% enddocs %}
+
+
+
+
+{% docs order__order_date_sk %}
+Order date surrogate key (date_day)
+{% enddocs %}
+
+
+
+
+{% docs payments__payment_date_sk %}
+Payment date surrogate key (date_day)
+{% enddocs %}
+
+
+
+
+{% docs shipments__shipped_date_sk %}
+Shipped date surrogate key (date_day)
+{% enddocs %}
+
+{% docs shipments__delivery_date_sk %}
+Delivery date surrogate key (date_day)
+{% enddocs %}
+
+{% docs shipments__shipping_duration_days %}
+Shipping duration (days)
+{% enddocs %}
