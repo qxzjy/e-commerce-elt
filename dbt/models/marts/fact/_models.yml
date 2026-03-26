@@ -52,7 +52,7 @@ models:
       - name: payment_method_sk
         description: "{{ doc('payment_method__payment_method_sk') }}"
       - name: amount
-        description: "{{ doc('payment_amount') }}"
+        description: "{{ doc('payments__amount') }}"
   - name: fact_shipments
     description: Shipments fact
     columns:
