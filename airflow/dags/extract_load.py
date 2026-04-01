@@ -1,3 +1,7 @@
+"""
+DAG that enables the extraction and loading of e-commerce data from a PostgreSQL database
+into a BigQuery database.
+"""
 import logging
 from datetime import datetime
 
@@ -6,6 +10,7 @@ from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.standard.operators.empty import EmptyOperator
+from airflow.providers.standard.operators.trigger_dagrun import TriggerDagRunOperator
 from airflow.sdk import Variable, dag, task, task_group
 
 logger = logging.getLogger(__name__)
@@ -13,8 +18,8 @@ logger = logging.getLogger(__name__)
 TABLES = ["customers", "orders", "order_items", "payments", "products", "shipments"]
 
 # schedule="@daily"
-@dag(dag_id="elt-postgres-bigquery-dbt", start_date=datetime(2025, 12, 11), schedule=None, catchup=False)
-def elt_postgres_bigquery_dbt():
+@dag(dag_id="extract-load-postgres-bigquery", schedule=None, catchup=False)
+def extract_load():
     
     @task(task_id='extract_to_csv', multiple_outputs=True)
     def _extract_to_csv(table_name: str, **context: dict) -> dict:
@@ -88,9 +93,9 @@ def elt_postgres_bigquery_dbt():
         load_to_gcs = _load_to_gcs(table_name)
         
         load_to_bigquery = GCSToBigQueryOperator(
-            task_id = "load_to_bigquery",
+            task_id="load_to_bigquery",
             bucket=Variable.get("GCS_BUCKET_NAME"),
-            source_objects = [f"raw/{extract_to_csv["csv_file_name"]}"],
+            source_objects=[f"raw/{extract_to_csv["csv_file_name"]}"],
             destination_project_dataset_table=f"{Variable.get("BQ_DATASET_RAW")}.{table_name}",
             create_disposition="CREATE_IF_NEEDED",
             write_disposition="WRITE_TRUNCATE",
@@ -99,7 +104,7 @@ def elt_postgres_bigquery_dbt():
         
         extract_to_csv >> load_to_gcs >> load_to_bigquery
     
-    @task_group(group_id='extract_load')
+    @task_group(group_id='extract_load_data')
     def extract_load_group() -> None:
         """
         Group EL task groups.
@@ -113,9 +118,17 @@ def elt_postgres_bigquery_dbt():
             table_group.override(group_id=f'{table_name}_table')(table_name)
             
     start = EmptyOperator(task_id='start')
-    extract_load = extract_load_group()
-    end = EmptyOperator(task_id='end')
-
-    start >> extract_load >> end
     
-dag = elt_postgres_bigquery_dbt()
+    extract_load_data = extract_load_group()
+    
+    trigger_transform = TriggerDagRunOperator(
+        task_id='start',
+        trigger_dag_id='transform-bigquery-dbt'
+    )
+    
+    end = EmptyOperator(task_id='end')
+    
+
+    start >> extract_load_data >> trigger_transform >> end
+    
+dag = extract_load()
