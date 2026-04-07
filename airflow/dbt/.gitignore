@@ -1,4 +1,6 @@
-target/
 dbt_packages/
 logs/
-dbt_venv/
+target/*
+!target/index.html
+!target/manifest.json
+!target/catalog.json
