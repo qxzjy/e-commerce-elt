@@ -1,0 +1,34 @@
+name: deploy-dbt-docs
+
+on:
+  push:
+    paths:
+      - "airflow/dbt/target/**"
+  pull_request:
+    paths:
+      - "airflow/dbt/target/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v5
+    - name: Checkout files as new
+      run: |
+        git checkout --orphan dbt-docs
+
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+    - name: Commit dbt docs related modification
+      run: |
+        git add airflow/dbt/target
+        git commit -m "docs(dbt): docs update"
+    - name: Push modification on dedicated branch
+      run: |
+        git push origin `git subtree split --prefix=airflow/dbt/target dbt-docs`:dbt-docs --force
